@@ -26,6 +26,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/robots.txt");
   eleventyConfig.addPassthroughCopy({ "src/dows.html": "dows.html" });
   eleventyConfig.addPassthroughCopy({ "src/*.txt": "/" });
+  eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
 
   eleventyConfig.addCollection("posts", (api) =>
     api.getFilteredByGlob("src/posts/*.md").sort((a, b) => b.date - a.date)

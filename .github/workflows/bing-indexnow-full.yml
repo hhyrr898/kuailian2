@@ -23,7 +23,15 @@ jobs:
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          REQUIRE_INDEXNOW_KEY: "1"
         run: npm run build
+
+      - name: Verify IndexNow key online
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          INDEXNOW_HOST: ${{ secrets.INDEXNOW_HOST }}
+        run: node scripts/verify-indexnow-key.mjs --online
 
       - name: Push all URLs to Bing
         env:

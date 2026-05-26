@@ -5,7 +5,9 @@
   "scripts": {
     "logo": "node scripts/generate-logo.mjs",
     "icons": "node scripts/generate-logo.mjs && node scripts/generate-favicon.mjs",
-    "build": "node scripts/write-indexnow-key.mjs && eleventy",
+    "build": "node scripts/write-indexnow-key.mjs && eleventy && node scripts/verify-indexnow-key.mjs",
+    "verify:indexnow": "node scripts/verify-indexnow-key.mjs",
+    "verify:indexnow:online": "node scripts/verify-indexnow-key.mjs --online",
     "start": "eleventy --serve --port=8081",
     "dev": "eleventy --serve --watch --port=8081",
     "seed": "node scripts/seed-posts.mjs",

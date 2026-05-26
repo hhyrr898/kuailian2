@@ -46,9 +46,15 @@ jobs:
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          REQUIRE_INDEXNOW_KEY: "1"
         run: |
           chmod -R +x ./node_modules/.bin/ 2>/dev/null || true
           npm run build
+
+      - name: Verify IndexNow key file (local build output)
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: node scripts/verify-indexnow-key.mjs
 
       - name: Commit and Push Changes back to Repo
         env:
@@ -67,6 +73,24 @@ jobs:
           else
             echo "无文件变更，跳过推送"
           fi
+
+      - name: Wait for Cloudflare Pages deploy (IndexNow txt)
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          INDEXNOW_HOST: ${{ secrets.INDEXNOW_HOST }}
+        run: |
+          echo "等待 Pages 同步验证文件（最多约 3 分钟）..."
+          for i in $(seq 1 36); do
+            if node scripts/verify-indexnow-key.mjs --online; then
+              echo "线上验证文件已就绪"
+              exit 0
+            fi
+            echo "第 ${i}/36 次检查未通过，10 秒后重试..."
+            sleep 10
+          done
+          echo "线上验证文件仍未就绪，请检查 Cloudflare Pages 是否配置 INDEXNOW_KEY 并完成部署"
+          exit 1
 
       - name: Push URLs to Bing IndexNow
         env:
