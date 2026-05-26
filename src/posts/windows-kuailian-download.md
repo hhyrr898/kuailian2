@@ -9,6 +9,8 @@ tags:
   - 安装教程
 date: 2026-05-01
 permalink: /posts/windows-kuailian-download/
+videoEmbed: https://www.youtube.com/embed/M7lc1UVf-VE
+videoTitle: Windows 版快连下载安装全流程
 ---
 
 本文围绕 **Windows 版快连下载安装全流程** 展开，帮助用户在完成快连下载后快速上手并解决常见疑问。

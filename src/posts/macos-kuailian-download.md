@@ -9,6 +9,8 @@ tags:
   - 安装教程
 date: 2026-05-02
 permalink: /posts/macos-kuailian-download/
+videoEmbed: https://www.youtube.com/embed/aqz-KE-bpKQ
+videoTitle: macOS 版快连下载与权限配置
 ---
 
 本文围绕 **macOS 版快连下载与权限配置** 展开，帮助用户在完成快连下载后快速上手并解决常见疑问。
