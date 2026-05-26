@@ -1,0 +1,122 @@
+---
+layout: layouts/base.njk
+---
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>快连官方 · 全平台客户端获取</h1>
+      <p class="hero-lead">{{ heroLead or site.description }}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/download.html">前往下载中心</a>
+        <a class="btn btn-outline" href="/blog/">浏览教程</a>
+      </div>
+      <nav class="anchor-nav" aria-label="页面内容导航">
+        <ul>
+          <li><a href="#section-download">各平台下载</a></li>
+          <li><a href="#section-resources">精选内容</a></li>
+          <li><a href="#section-version">版本说明</a></li>
+          <li><a href="#section-compat">系统兼容</a></li>
+          <li><a href="#section-verify">安装核对</a></li>
+          <li><a href="#section-scenarios">使用场景</a></li>
+          <li><a href="#section-faq">常见问题</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="hero-visual">
+      <img src="{{ '快连官方 客户端下载' | bingImg }}" alt="快连官方客户端 Windows macOS Android iOS 下载" width="640" height="360" loading="eager">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="section-download">
+  <div class="container">
+    <header class="section-head">
+      <h2>快连官方各平台下载</h2>
+      <p>Windows、macOS、Android、iOS 四端安装包一站获取</p>
+    </header>
+    <div class="download-grid">
+      <article class="download-tile" id="section-win">
+        <div class="icon" aria-hidden="true">🪟</div>
+        <h3>Windows 版快连官方</h3>
+        <p>Win10 / Win11 64 位桌面版</p>
+        <a class="btn btn-primary" href="/download.html#windows">获取安装包</a>
+      </article>
+      <article class="download-tile" id="section-mac">
+        <div class="icon" aria-hidden="true">🍎</div>
+        <h3>macOS 版快连官方</h3>
+        <p>Apple 芯片与 Intel 双架构</p>
+        <a class="btn btn-primary" href="/download.html#macos">获取安装包</a>
+      </article>
+      <article class="download-tile" id="section-android">
+        <div class="icon" aria-hidden="true">🤖</div>
+        <h3>Android 版快连官方</h3>
+        <p>手机与平板通用</p>
+        <a class="btn btn-primary" href="/download.html#android">获取安装包</a>
+      </article>
+      <article class="download-tile" id="section-ios">
+        <div class="icon" aria-hidden="true">📱</div>
+        <h3>iOS 版快连官方</h3>
+        <p>iPhone / iPad</p>
+        <a class="btn btn-primary" href="/download.html#ios">获取安装包</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="section-resources">
+  <div class="container">
+    <header class="section-head">
+      <h2>快连下载精选内容</h2>
+      <p>安装、排错与场景实践相关文章与指引</p>
+    </header>
+    <div class="card-grid">
+      {% for item in homeEntries %}
+      <article class="card">
+        <a href="{{ item.href }}" class="card-thumb">
+          <img src="{{ item.img | bingImg }}" alt="{{ item.img }} 快连下载" width="400" height="225" loading="lazy">
+        </a>
+        <div class="card-body">
+          <span class="card-tag">{{ item.tag }}</span>
+          <h3><a href="{{ item.href }}">{{ item.title }}</a></h3>
+          <p>{{ item.desc }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="section-version">
+  <div class="container info-panel">
+    <h2>快连官方版本说明</h2>
+    <p>安装完成后可在应用内「关于」查看版本号。Windows 需 64 位系统；macOS 请区分 arm64 与 x64 安装包；移动端建议预留 200MB 以上空间。</p>
+  </div>
+</section>
+
+<section class="section" id="section-compat">
+  <div class="container info-panel">
+    <h2>系统兼容要求</h2>
+    <p>系统版本过低可能导致安装失败或闪退。建议将 Windows、macOS 或移动系统更新至官方支持的最新稳定版后再安装快连官方客户端。</p>
+  </div>
+</section>
+
+<section class="section" id="section-verify">
+  <div class="container info-panel">
+    <h2>安装包核对</h2>
+    <p>请通过本站<a href="/download.html">下载中心</a>获取客户端，核对文件大小与版本信息。若与说明不一致，请勿安装并重新获取快连官方安装包。</p>
+  </div>
+</section>
+
+<section class="section" id="section-scenarios">
+  <div class="container info-panel">
+    <h2>典型使用场景</h2>
+    <p>办公远程访问、跨区协作、家庭多设备同步、移动端出行连接等场景，均可通过快连下载后按教程完成配置。更多场景说明见<a href="/blog/">教程栏目</a>。</p>
+  </div>
+</section>
+
+<section class="section" id="section-faq">
+  <div class="container info-panel">
+    <h2>常见问题速览</h2>
+    <p>无法启动、连接超时、账号异常等问题，可在<a href="/blog/#cat-faq">常见问题目录</a>查找对应文章，或按标签<a href="/tags/排错/">排错</a>浏览相关教程。</p>
+  </div>
+</section>

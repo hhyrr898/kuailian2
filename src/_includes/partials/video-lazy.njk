@@ -1,0 +1,39 @@
+{% if videoEmbed %}
+<section class="video-lazy" id="article-video">
+  <button type="button" class="video-lazy-toggle" data-video-src="{{ videoEmbed }}" aria-expanded="false" aria-controls="video-frame-wrap">
+    <span aria-hidden="true">▶</span>
+    <span>{{ videoTitle or title }} · 点击加载演示</span>
+  </button>
+  <div class="video-lazy-frame" id="video-frame-wrap" role="region" aria-label="{{ videoTitle or title }}">
+    <iframe title="{{ videoTitle or title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+{% if videoTitle or title %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": {{ (videoTitle or title) | dump | safe }},
+  "description": {{ (description or pageDescription) | dump | safe }},
+  "uploadDate": "{{ page.date | dateZh }}",
+  "contentUrl": {{ videoEmbed | dump | safe }}
+}
+</script>
+{% endif %}
+<script>
+(function () {
+  var btn = document.querySelector("#article-video .video-lazy-toggle");
+  if (!btn) return;
+  btn.addEventListener("click", function () {
+    var wrap = document.getElementById("video-frame-wrap");
+    var src = btn.getAttribute("data-video-src");
+    if (!wrap || !src || wrap.classList.contains("is-active")) return;
+    var iframe = wrap.querySelector("iframe");
+    iframe.src = src;
+    wrap.classList.add("is-active");
+    btn.setAttribute("aria-expanded", "true");
+    btn.disabled = true;
+  });
+})();
+</script>
+{% endif %}

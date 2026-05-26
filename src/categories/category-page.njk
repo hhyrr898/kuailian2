@@ -1,0 +1,51 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: site.categories
+  size: 1
+  alias: cat
+permalink: "categories/{{ cat.slug }}/index.html"
+navKey: blog
+eleventyComputed:
+  pageTitle: "{{ cat.name }} · 快连下载"
+  pageDescription: "快连下载「{{ cat.name }}」栏目下的安装、配置与使用相关文章。"
+---
+<div class="container breadcrumb">
+  <a href="/">快连下载</a> / <a href="/blog/">教程</a> / <span>{{ cat.name }}</span>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>{{ cat.name }}</h1>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <nav class="category-pills" aria-label="内容目录">
+      {% for c in site.categories %}
+      <a href="/categories/{{ c.slug }}/"{% if c.slug == cat.slug %} aria-current="page"{% endif %}>{{ c.name }}</a>
+      {% endfor %}
+    </nav>
+    <div class="card-grid">
+      {% for post in collections.posts %}
+      {% if post.data.category == cat.name %}
+      <article class="card">
+        <a href="{{ post.url }}" class="card-thumb">
+          <img src="{{ (post.data.title + ' 快连下载') | bingImg }}" alt="{{ post.data.title }} 快连下载" loading="lazy" width="400" height="225">
+        </a>
+        <div class="card-body">
+          {% if post.data.tags and post.data.tags[0] %}
+          <span class="card-tag">{{ post.data.tags[0] }}</span>
+          {% endif %}
+          <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+          <p>{{ post.data.description }}</p>
+          <p style="font-size:0.85rem;color:var(--muted);margin-top:8px;">{{ post.date | dateZh }}</p>
+        </div>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <p style="margin-top:28px;"><a href="/blog/">← 返回教程列表</a> · <a href="/download.html">下载中心</a></p>
+  </div>
+</section>
