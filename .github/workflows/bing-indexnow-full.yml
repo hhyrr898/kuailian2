@@ -22,21 +22,21 @@ jobs:
       - name: Build site
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN || vars.SITE_DOMAIN || 'kuailian-letsv.com' }}
           REQUIRE_INDEXNOW_KEY: "1"
         run: npm run build
 
       - name: Verify IndexNow key online
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN || vars.SITE_DOMAIN || 'kuailian-letsv.com' }}
           INDEXNOW_HOST: ${{ secrets.INDEXNOW_HOST }}
         run: node scripts/verify-indexnow-key.mjs --online
 
       - name: Push all URLs to Bing
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN || vars.SITE_DOMAIN || 'kuailian-letsv.com' }}
           INDEXNOW_HOST: ${{ secrets.INDEXNOW_HOST }}
           PUSH_NEW_ONLY: "0"
         run: node scripts/bing-indexnow-push.mjs

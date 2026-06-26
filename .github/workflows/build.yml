@@ -18,7 +18,7 @@ jobs:
       - name: Build site
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN || vars.SITE_DOMAIN || 'kuailian-letsv.com' }}
           REQUIRE_INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY != '' && '1' || '' }}
         run: npm run build
       - uses: actions/upload-artifact@v4

@@ -45,7 +45,7 @@ jobs:
       - name: Build Eleventy Site
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN || vars.SITE_DOMAIN || 'kuailian-letsv.com' }}
           REQUIRE_INDEXNOW_KEY: "1"
         run: |
           chmod -R +x ./node_modules/.bin/ 2>/dev/null || true
@@ -77,7 +77,7 @@ jobs:
       - name: Wait for Cloudflare Pages deploy (IndexNow txt)
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN || vars.SITE_DOMAIN || 'kuailian-letsv.com' }}
           INDEXNOW_HOST: ${{ secrets.INDEXNOW_HOST }}
         run: |
           echo "等待 Pages 同步验证文件（最多约 3 分钟）..."
@@ -95,7 +95,7 @@ jobs:
       - name: Push URLs to Bing IndexNow
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN || vars.SITE_DOMAIN || 'kuailian-letsv.com' }}
           INDEXNOW_HOST: ${{ secrets.INDEXNOW_HOST }}
           PUSH_NEW_ONLY: "1"
         run: node scripts/bing-indexnow-push.mjs
