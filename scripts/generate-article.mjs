@@ -138,14 +138,57 @@ function normalizeJsonText(value) {
     .replace(/,\s*([}\]])/g, "$1");
 }
 
+function isEscaped(value, index) {
+  let count = 0;
+  for (let i = index - 1; i >= 0 && value[i] === "\\"; i -= 1) {
+    count += 1;
+  }
+  return count % 2 === 1;
+}
+
+function decodeLooseJsonString(value) {
+  const escapedQuotes = String(value || "")
+    .replace(/[\u0000-\u001f]/g, (ch) => {
+      if (ch === "\n") return "\\n";
+      if (ch === "\r") return "\\r";
+      if (ch === "\t") return "\\t";
+      return "";
+    })
+    .replace(/"/g, (match, offset, input) => (isEscaped(input, offset) ? match : '\\"'));
+  return JSON.parse(`"${escapedQuotes}"`);
+}
+
+function parseLooseArticleJson(value) {
+  const json = normalizeJsonText(value);
+  const fields = ["title", "description", "imageKeyword1", "imageKeyword2", "bodyMarkdown"];
+  const parsed = {};
+
+  for (const field of fields) {
+    const nextFields = fields.filter((item) => item !== field).join("|");
+    const pattern = new RegExp(`"${field}"\\s*:\\s*"([\\s\\S]*?)"\\s*(?=,\\s*"(${nextFields})"\\s*:|\\s*})`);
+    const match = json.match(pattern);
+    if (!match) return null;
+    try {
+      parsed[field] = decodeLooseJsonString(match[1]);
+    } catch {
+      return null;
+    }
+  }
+
+  return parsed;
+}
+
 function parseArticleJson(value) {
   const json = normalizeJsonText(value);
   let parsed;
   try {
     parsed = JSON.parse(json);
   } catch (error) {
-    const preview = json.slice(0, 600);
-    throw new Error(`Gemini returned invalid JSON: ${error.message}\nJSON preview: ${preview}`);
+    parsed = parseLooseArticleJson(json);
+    if (!parsed) {
+      const preview = json.slice(0, 600);
+      throw new Error(`Gemini returned invalid JSON: ${error.message}\nJSON preview: ${preview}`);
+    }
   }
   return {
     title: cleanText(parsed.title),
@@ -186,6 +229,7 @@ async function generateOne(genAI) {
 9. 提供 imageKeyword1 和 imageKeyword2（用于配图，各 4-8 字，与快连下载相关）
 10. 只输出 JSON，格式：
 {"title":"","description":"","imageKeyword1":"","imageKeyword2":"","bodyMarkdown":"## 小节\\n\\n段落..."}
+11. JSON 字段值内部不要使用英文双引号 "，需要强调时改用中文引号或书名号
 
 bodyMarkdown 中在合适位置插入两行图片占位：
 ![描述](IMAGE1)
@@ -207,6 +251,7 @@ bodyMarkdown 中在合适位置插入两行图片占位：
 - 结构保留或随机调整为：教程型、评测型、问答型、快讯型之一
 - 长度 800-1500 字，段落长短错落，不要每段都3-4句
 - 保留 IMAGE1 和 IMAGE2 图片占位，不要新增外链
+- JSON 字段值内部不要使用英文双引号 "，需要强调时改用中文引号或书名号
 
 输入 JSON：
 ${JSON.stringify(draft)}`;
