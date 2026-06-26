@@ -96,8 +96,57 @@ function stripJsonFence(value) {
     .trim();
 }
 
+function extractJsonObject(value) {
+  const text = stripJsonFence(value);
+  const start = text.indexOf("{");
+  if (start === -1) return text;
+
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+
+  for (let i = start; i < text.length; i += 1) {
+    const ch = text[i];
+
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (ch === "\\") {
+      escaped = true;
+      continue;
+    }
+    if (ch === '"') {
+      inString = !inString;
+      continue;
+    }
+    if (inString) continue;
+
+    if (ch === "{") depth += 1;
+    if (ch === "}") depth -= 1;
+    if (depth === 0) return text.slice(start, i + 1);
+  }
+
+  return text.slice(start);
+}
+
+function normalizeJsonText(value) {
+  return extractJsonObject(value)
+    .replace(/^\uFEFF/, "")
+    .replace(/[“”]/g, '"')
+    .replace(/[‘’]/g, "'")
+    .replace(/,\s*([}\]])/g, "$1");
+}
+
 function parseArticleJson(value) {
-  const parsed = JSON.parse(stripJsonFence(value));
+  const json = normalizeJsonText(value);
+  let parsed;
+  try {
+    parsed = JSON.parse(json);
+  } catch (error) {
+    const preview = json.slice(0, 600);
+    throw new Error(`Gemini returned invalid JSON: ${error.message}\nJSON preview: ${preview}`);
+  }
   return {
     title: cleanText(parsed.title),
     description: cleanText(parsed.description),
@@ -108,7 +157,12 @@ function parseArticleJson(value) {
 }
 
 async function generateOne(genAI) {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.5-flash",
+    generationConfig: {
+      responseMimeType: "application/json"
+    }
+  });
   const category = CATEGORY_POOL[Math.floor(Math.random() * CATEGORY_POOL.length)];
   const tags = pickTags(3 + Math.floor(Math.random() * 2));
 
