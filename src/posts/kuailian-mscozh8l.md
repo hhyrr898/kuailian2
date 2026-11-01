@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 还在等下载？快连下载这神器，资源秒到手，谁用谁知道！
 description: 每次下个大文件都等到花都谢了？别抓狂了，快连下载教你啥叫\"秒到\"！从找资源到下载，全程加速，从此告别慢慢等，舒服~

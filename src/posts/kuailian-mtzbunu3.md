@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 快连下载器新版实测：告别等待，文件秒速到手！
 description: 下载慢？想摔鼠标？快连下载器v3.5.2 来了！手把手教你装和用，告别龟速。还有避坑指南，体验飞一般的感觉！

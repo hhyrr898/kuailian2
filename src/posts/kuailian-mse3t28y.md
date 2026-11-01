@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别龟速卡顿！快连下载这货，真香！附保姆级教程
 description: 厌倦了下载慢吞吞？快连下载不光帮你提速，还是你的资源管理好帮手！这篇教程手把手教你从零玩转，告别等待，效率直接拉满！

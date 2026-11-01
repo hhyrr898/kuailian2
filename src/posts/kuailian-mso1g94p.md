@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别龟速！快连下载保姆级教程，文件秒传小白也能玩转！
 description: 还在为传文件慢急眼？快连下载（KuaiLian Download）这玩意儿真香！从安装到骚操作，一篇搞定。甭管你传多大的文件，啥设备都能秒连，还有我压箱底的避坑小技巧，告别文件传输焦虑，懂的都懂！

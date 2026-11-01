@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别龟速！快连下载傻瓜式教程，小白也能秒变下载大神！
 description: 还在为文件下载慢如蜗牛烦恼？这篇攻略手把手教你安装使用快连下载，告别断网、卡顿，瞬间提升下载效率，亲测有效！

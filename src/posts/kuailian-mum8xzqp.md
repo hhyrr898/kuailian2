@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 快连下载，到底香不香？手把手教你光速起飞，告别龟速！
 description: 想知道快连下载是不是你的菜？这篇从安装到起飞的全攻略，手把手带你玩转光速下载！附赠常见问题解答，帮你避坑不踩雷。

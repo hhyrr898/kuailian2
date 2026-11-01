@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 下载慢到崩溃？快连下载这「神器」，三步教你飞速下载！
 description: 文件下不动？等得花儿都谢了？别急！这篇手把手教程，带你玩转快连下载，从零开始，分分钟告别龟速，享受飞一般的下载体验！

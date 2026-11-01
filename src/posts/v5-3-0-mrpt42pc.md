@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 快连下载v5.3.0真香！这份下载安装指南请收好！
 description: 还在被下载速度劝退？别慌！今天就带你看看快连下载v5.3.0咋样，三步搞定安装，从此告别卡顿！顺便把那些下载里的坑也给你填平了。

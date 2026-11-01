@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 快连下载总是掉链子？别慌，我来教你几招搞定它！
 description: 用快连下载文件老是卡壳、慢如蜗牛、找不到东西？别急，这篇帖子手把手教你解决各种下载痛点，保准你轻松拿捏快连，告别烦恼！

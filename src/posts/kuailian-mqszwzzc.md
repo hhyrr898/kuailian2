@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 快连下载：解决您从获取到使用的所有疑问
 description: 一份专为快连下载用户准备的全面指南，涵盖了从首次下载、安装配置、连接故障到性能优化的常见问题，助您轻松上手，享受无忧网络体验。

@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别蜗牛速！快连下载：资源速通秘籍，小白也能变大神
 description: 还在被龟速下载气到跳脚？这篇文章教你玩转快连下载，从上手到精通，让你秒变资源达人，从此跟等待说拜拜！

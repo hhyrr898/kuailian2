@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别龟速！快连下载提速秘籍+避坑指南，亲测有效！
 description: 还在为慢速下载、安装失败头疼？这篇干货，帮你彻底搞懂快连下载，从安装到提速，手把手解决你的烦恼，让你体验飞一般的下载快感！

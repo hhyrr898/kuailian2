@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别下载龟速！快连下载保姆级教程，小白也能秒变大神！
 description: 受够下载慢了？快来试试快连下载！这篇教程手把手教你从安装到使用，轻松搞定各种资源，告别漫长等待，高效管理你的数字生活！

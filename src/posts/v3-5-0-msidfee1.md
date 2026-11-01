@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别下载龟速？快连下载 v3.5.0 这波升级值不值！
 description: 下载慢到崩溃？别慌！这篇带你瞅瞅快连下载 v3.5.0 到底有啥新玩意，还有我挖到的几个提速小窍门，让你大文件传输也能飞起来！

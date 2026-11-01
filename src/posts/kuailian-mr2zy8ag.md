@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别龟速！快连下载保姆级教程，让你文件秒到手！
 description: 还在为下载慢、找不到资源烦恼吗？咱就是说，快连下载这款神兵利器，从安装到下载，手把手教你玩转，啥资源都能轻松搞定，冲鸭！

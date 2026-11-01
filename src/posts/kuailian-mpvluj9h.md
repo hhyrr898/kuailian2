@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 探索快连下载：高效便捷的数字资源获取之道
 description: 深入解析快连下载的工作原理、核心优势及多样化应用场景。了解如何通过快连技术，安全、高效地获取各类数字资源，优化您的下载体验。

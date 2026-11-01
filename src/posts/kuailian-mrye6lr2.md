@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别龟速下载！快连下载保姆级上手教程，资源秒到手不是梦
 description: 还在为下片慢、文件总断线烦恼？别方！我手把手教你玩转快连下载，从此告别龟速，资源秒到手，还有常见问题解决办法哦！

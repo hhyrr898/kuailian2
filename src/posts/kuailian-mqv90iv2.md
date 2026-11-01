@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别蜗牛速！快连下载从安装到提速，这篇干货全搞定！
 description: 是不是还在跟下载龟速较劲？『快连下载』这玩意儿，安装、提速、疑难杂症，我给你掰扯清楚，秒变下载达人！

@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 告别龟速！快连下载这个神器，新手也能玩转！
 description: 还在为下载慢头疼？《快连下载》帮你彻底解决！从安装到提速，常见问题一次搞定，让你文件下载爽歪歪！

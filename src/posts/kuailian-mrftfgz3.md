@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 快连下载老出幺蛾子？别慌！一文教你轻松搞定各种疑难杂症！
 description: 快连下载卡顿、安装失败、更新出BUG？别急！这篇超实用指南，带你从小白变高手，告别下载烦恼，流畅冲浪！

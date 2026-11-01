@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 下载资源慢到吐血？试试快连下载V3.2.1，告别卡顿秒Get！
 description: 资源下载总是慢悠悠？别急，这篇教程手把手教你把快连下载器玩转起来，电影、学习资料、热门软件，通通秒到手，跟下载卡顿说拜拜！

@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 兄弟们，快连下载又升级了！实测速度快到离谱，附傻瓜式安装指南
 description: 还在为下载慢抓狂？快来看看快连下载的新版本！手把手教你安装使用，新老用户都能变身下载达人，各种问题一次搞定！

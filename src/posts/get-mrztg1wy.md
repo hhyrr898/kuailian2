@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 下载慢到崩溃？试试快连下载！这玩意儿真香，资源秒速GET！
 description: 有没有被下载速度气到吐血的？别急！哥们儿手把手教你用快连下载，从装机到飞起，常见问题一次搞定。用上它，你会发现新世界！

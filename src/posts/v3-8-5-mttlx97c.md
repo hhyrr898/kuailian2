@@ -1,4 +1,5 @@
 ---
+noindex: true
 layout: layouts/post.njk
 title: 下载资源总犯愁？快连下载 v3.8.5 攻略，效率飙升！
 description: 文件下载慢？资源难找？今天就扒一扒『快连下载』神器，教你光速搞定各种文件，告别龟速等待，数字生活安排得明明白白！
