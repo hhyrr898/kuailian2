@@ -6,11 +6,11 @@
   "slugPrefix": "kuailian",
   "keywordsPath": "src/keywords.json",
   "linkPool": [
-    "/posts2024-mrczvuca/",
-    "/posts20245-muc72wgm/",
-    "/posts3-2-1-mqvujats/",
-    "/posts3-5-0-mtgstadm/",
-    "/posts5-3-0-mtcv0aiu/"
+    "/posts/2024-mrczvuca/",
+    "/posts/20245-muc72wgm/",
+    "/posts/3-2-1-mqvujats/",
+    "/posts/3-5-0-mtgstadm/",
+    "/posts/5-3-0-mtcv0aiu/"
   ],
   "minChars": 750,
   "maxChars": 2200,
