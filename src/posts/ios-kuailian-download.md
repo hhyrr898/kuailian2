@@ -1,4 +1,5 @@
-﻿---
+---
+noindex: true
 layout: layouts/post.njk
 title: iOS 版快连下载与描述文件
 description: iOS 版快连下载与描述文件详细说明，涵盖快连下载后的配置步骤与注意事项。

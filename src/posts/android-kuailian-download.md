@@ -1,4 +1,5 @@
-﻿---
+---
+noindex: true
 layout: layouts/post.njk
 title: Android 版快连下载与安装
 description: Android 版快连下载与安装详细说明，涵盖快连下载后的配置步骤与注意事项。

@@ -1,4 +1,5 @@
-﻿---
+---
+noindex: true
 layout: layouts/post.njk
 title: macOS 版快连下载与权限配置
 description: macOS 版快连下载与权限配置详细说明，涵盖快连下载后的配置步骤与注意事项。
