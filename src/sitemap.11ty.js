@@ -43,9 +43,6 @@ module.exports = class {
     push(`${base}/dows.html`, null, "0.8", "weekly");
 
     const categories = data.site?.categories || [];
-    for (const cat of categories) {
-      push(`${base}/categories/${cat.slug}/`, null, "0.6", "weekly");
-    }
 
     for (const post of posts) {
       const d = post.date instanceof Date ? post.date : new Date(post.date);
