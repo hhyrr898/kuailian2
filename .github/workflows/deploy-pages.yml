@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+﻿name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Eleventy Site
         env:
-          SITE_URL: ${ '{' } vars.SITE_URL != '' && vars.SITE_URL || 'https://kuailian.com' { '}' }
+          SITE_URL: ${ '{' } vars.SITE_URL != '' && vars.SITE_URL || 'https://kuailalian.com' { '}' }
         run: npm run build
 
       - name: Deploy to Cloudflare Pages
